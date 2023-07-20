@@ -1,3 +1,12 @@
+def gamestart():
+    print("Welcome to Wordle Console Version 1.1,\n Let's start with a five letter word.")
+    return
+def attemptmsg(attemptcount,maxattemptcount):
+    print("Attempt "+str(attemptcount)+"/"+str(maxattemptcount)+":",end="")
+    return
+def attempterrormsg(msg):
+    print(msg)
+    return
 def printresult(guessword,resultstr):
     for i in range(0,len(resultstr)):
         if resultstr[i]=="0":
