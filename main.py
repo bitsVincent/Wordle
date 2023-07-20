@@ -4,18 +4,20 @@ import interface
 
 def entry():
     gp = wordlewordlist.guessingprocess("master5dict.csv","test5dict.csv")
-    word=gp.getword()
-    length=len(word)
+    ifc = interface.consoleinterface()
+    ifc.gamestart()
     #Start Attemptation
     while(gp.getattemptcount()<=gp.getmaxattemptcount()):
+        ifc.attemptmsg(gp.getattemptcount(),gp.getmaxattemptcount())
         guessword=input().lower()
         #Check Vaildation, if failed continue and restart the attempt
         wordvaildmsg=gp.checkword(guessword)
         if(wordvaildmsg!=""):
-           interface.attempterrormsg(wordvaildmsg)
+           ifc.attempterrormsg(wordvaildmsg)
            continue
-        interface.printresult(guessword,gp.compare(guessword,word))
-    interface.gamesummary(gp.getwinflag(),gp.getwordinfo())
+        ifc.printresult(guessword,gp.compare(guessword))
+        if(gp.getwinflag()): break
+    ifc.gamesummary(gp.getwinflag(),gp.getwordinfo())
 
 entry()
     

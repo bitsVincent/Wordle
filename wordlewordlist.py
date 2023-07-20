@@ -36,9 +36,9 @@ class guessingprocess(object):
         
         result=""
         for i in range(0,len(word)):
-            if self.answord[i] == word[i]:
+            if word[i] == self.answord[i]:
                 result+="1"
-            elif self.answord[i] in word:
+            elif word[i] in self.answord:
                 result+="2"
             else:
                 result+="0"
